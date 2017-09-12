@@ -3,9 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { Switch, NavLink } from 'react-router-dom';
-// import HomePage from './HomePage';
 import HomePage from '../containers/HomePage';
-import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
 
 // This is a class-based component because the current
@@ -15,12 +13,13 @@ import NotFoundPage from './NotFoundPage';
 class App extends React.Component {
   render() {
     const activeStyle = { color: 'blue' };
-          // <Route exact path="/" component={HomePage} />
     return (
       <div>
+        <div>
+          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
+        </div>
         <Switch>
-          <Route path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
+          <Route exact path="/" component={HomePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
